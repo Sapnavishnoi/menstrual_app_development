@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Starting date</th>
       <th>Ending date</th>
       <th colspan="3"></th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @menstrual_cycles.each do |menstrual_cycle| %>
       <tr>
-        <td><%= menstrual_cycle.user %></td>
         <td><%= menstrual_cycle.starting_date %></td>
         <td><%= menstrual_cycle.ending_date %></td>
         <td><%= link_to 'Show', menstrual_cycle %></td>
@@ -27,5 +25,6 @@
 </table>
 
 <br>
+<p>this is your next predicted date: <%= @menstrual_cycles.last.next_predicted_date %></p>
 
 <%= link_to 'New Menstrual Cycle', new_menstrual_cycle_path %>
