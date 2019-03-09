@@ -1,0 +1,2 @@
+module MenstrualCyclesHelper
+end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @menstrual_cycle.user.email %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @menstrual_cycle.starting_date %>
+</p>
+
+<p>
+  <strong>Ending date:</strong>
+  <%= @menstrual_cycle.ending_date %>
+</p>
+
+<%= link_to 'Edit', edit_menstrual_cycle_path(@menstrual_cycle) %> |
+<%= link_to 'Back', menstrual_cycles_path %>

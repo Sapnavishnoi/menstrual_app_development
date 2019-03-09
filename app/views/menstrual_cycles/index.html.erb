@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Menstrual Cycles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Starting date</th>
+      <th>Ending date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menstrual_cycles.each do |menstrual_cycle| %>
+      <tr>
+        <td><%= menstrual_cycle.user %></td>
+        <td><%= menstrual_cycle.starting_date %></td>
+        <td><%= menstrual_cycle.ending_date %></td>
+        <td><%= link_to 'Show', menstrual_cycle %></td>
+        <td><%= link_to 'Edit', edit_menstrual_cycle_path(menstrual_cycle) %></td>
+        <td><%= link_to 'Destroy', menstrual_cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menstrual Cycle', new_menstrual_cycle_path %>

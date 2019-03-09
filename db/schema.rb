@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_054304) do
+ActiveRecord::Schema.define(version: 2019_03_09_064400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "menstrual_cycles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_menstrual_cycles_on_user_id"
+  end
+
+  create_table "menstural_cycles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "starting"
+    t.date "g_date"
+    t.date "ending_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_menstural_cycles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +46,6 @@ ActiveRecord::Schema.define(version: 2019_03_09_054304) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "menstrual_cycles", "users"
+  add_foreign_key "menstural_cycles", "users"
 end

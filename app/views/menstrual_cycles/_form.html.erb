@@ -1,0 +1,32 @@
+<%= form_with(model: menstrual_cycle, local: true) do |form| %>
+  <% if menstrual_cycle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menstrual_cycle.errors.count, "error") %> prohibited this menstrual_cycle from being saved:</h2>
+
+      <ul>
+      <% menstrual_cycle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= current_user.email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starting_date %>
+    <%= form.date_select :starting_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ending_date %>
+    <%= form.date_select :ending_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

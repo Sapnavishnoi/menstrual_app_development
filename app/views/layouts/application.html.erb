@@ -11,7 +11,7 @@
 
   <body>
     <% if current_user %>
-      <p>You are logged in as <%= current_user.email %></p>
+      <p>You are logged in as <%= current_user.email %>/ <%= link_to('Logout', destroy_user_session_path, method: :delete) %>  </p>
     <% else %>
       <p> <a href="/users/sign_in">click here to login</a></p>
     <% end %>
